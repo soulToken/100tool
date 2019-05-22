@@ -1,0 +1,45 @@
+<view>
+    <!-- banner -->
+    <swiper wx:if="{{bannerImgs&&bannerImgs.length>0}}"  style="height:{{imgHeight}}px" indicator-dots="{{isShowIndicator}}"
+        autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" circular="true"   >
+        <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
+            <swiper-item bindtap="swiperTapAction" data-value="{{item.linkUrl}}">
+                <image src="{{item.bannerUrl}}" class="slide-image" bindload="imageLoad" mode="widthFix" />
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!-- 显示功能的view -->
+    <view class="home-functionView">
+        <block wx:for="{{functionDataArr}}" wx:key="{{index}}">
+            <view class='function-detail' bindtap="{{item.functionName}}">
+                <image src="{{item.imgLocation}}" class="function-image" />
+            </view>
+        </block>
+    </view>
+    <!-- 总共信息view -->
+    <view class='home-totalView'>
+        <!-- 总收入 -->
+        <view class='total-incomes'>
+            <div class='total-upNum'>¥{{totalIncome}}</div>
+            <div class='total-downText'>总收入数</div>
+        </view>
+        <!-- 总用户数 -->
+        <view class='total-users'>
+            <div class='total-upNum'>{{totalUsers}}</div>
+            <div class='total-downText'>总用户数</div>
+        </view>
+    </view>
+    <!-- 今日信息view -->
+    <view class='detailData-allView'>
+
+        <block wx:for="{{detailDataArr}}" wx:key="{{index}}">
+            <view class="detailData-dataView">
+                <image class="detailData-image" src="{{item.imgLocation}}"  />
+                <div class="detailData-title">{{item.titleStr}}</div>
+                <div wx:if="{{index == 0 }}" class="detailData-detailNum">{{item.detailValue}}元</div>
+                <div wx:else class="detailData-detailNum">{{item.detailValue}}</div>
+            </view>
+        </block>
+    </view>
+</view>

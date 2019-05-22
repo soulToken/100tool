@@ -1,0 +1,48 @@
+
+<wxs module="dateUtil" src="./index.wxs"></wxs>
+
+ <view class="coupon-container">
+    <view class="coupon-list">
+      <view class="coupon-item" wx:for="{{couponListData}}" wx:for-index="index" wx:key="{{item.id}}">
+        <movable-area>
+          <movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}"
+            inertia="true"
+            data-productIndex="{{index}}"
+            bindtouchstart="handleTouchStart"
+            bindtouchend="handleTouchEnd"
+            bindchange="handleMovableChange">
+
+            <view class="flex_row coupon_box"  data-index="{{index}}">
+                <view class=" coupon_left flex_column just_content_sb" style="width:248rpx">
+                    <text>
+                        <text style="font-size:12px;">￥</text><text style="font-size:25px">{{item.couponAmount}}</text>
+                    </text>
+                    <text style="margin-top:16rpx;font-size:12px;">满{{item.enableAmount}}元可用</text>
+                    <view class="coupon_center flex_column al_center just_content_sb">
+                        <view class="half_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="whole_circle"></view>
+                        <view class="half_circle2"></view>
+                    </view>
+                </view>
+                <view class=" flex_1 coupon_right flex_column just_content_sb">
+                    <text style="font-size:17px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">{{item.couponName}}</text>
+                    <text wx:if="{{item.couponRemark}}" class="over_two_ellipsis" style="font-size:10px;color:#bfbfbf;">{{item.couponRemark}}</text>
+                    <text wx:if="{{item.expiryDate}}" style="color:#a6a6a6;font-size:12px;">于{{dateUtil.dateFormat(item.creationDate,item.expiryDate)}}到期</text>
+                    <text wx:else style="color:#a6a6a6;font-size:12px;">于{{dateUtil.dateFormat(item.endDate)}}到期</text>
+                </view>
+            </view>
+
+          </movable-view>
+        </movable-area>
+        <view class="delete-btn" data-id="{{item.id}}" bindtap="handleDeleteProduct">停用</view>
+      </view>
+    </view>
+  </view>
+  
+  <button class="counpon-addBtn" bindtap="addNewCoupon">新增优惠券</button>

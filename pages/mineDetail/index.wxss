@@ -1,0 +1,83 @@
+page {
+  background: #f7f7f7;
+}
+
+/* 头部设置 */
+
+.mineDetail-backgroundImage {
+  width: 100%;
+  height: 310rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mineDetail-headerImage {
+  color: white;
+  font-size: 46rpx;
+  text-align: center;
+  top: 137rpx;
+  width: 270rpx;
+  height: 270rpx;
+  position: absolute;
+  left: 240rpx;
+  border-radius: 135rpx;
+}
+
+.mineDetail-InfoView {
+  margin-top: 170rpx;
+  background: white;
+}
+
+/* 具体展示的行 */
+
+.mineDetail-detailView {
+  display: flex;
+  width: 100%;
+  height: 87rpx;
+  border-bottom: 1px solid #f5f5f5;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 图片显示 */
+
+.mineDetail-image {
+  width: 46rpx;
+  height: 46rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+/* 标题设置 */
+
+.mineDetail-title {
+  padding-left: 111rpx;
+  height: 87rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* 标题设置 */
+
+.mineDetail-detail {
+  height: 87rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 36rpx;
+}
+
+.mineDetail-actionView {
+  margin-top: 30rpx;
+  background: white;
+}
+
+.mineDetail-rightImage {
+  width: 18rpx;
+  height: 31rpx;
+  position: absolute;
+  right: 30rpx;
+}

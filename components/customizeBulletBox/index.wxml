@@ -1,0 +1,14 @@
+<!-- 黑色透明背景view -->
+<view  wx:if="{{isShow == true}}" class="bulletBox-backgroud">
+    <!-- 展示区 -->
+    <view  class="bulletBox-function">
+        <image wx:if="{{isSuccess == false}}" class="bulletBox-img" src="/images/icon_bad.png"></image>
+        <image wx:else class="bulletBox-img" src="/images/icon_ok.png"></image>
+        <div wx:if="{{isSuccess == false}}" class="bulletBox-title">暂未搜索到结果</div>
+        <div wx:else class="bulletBox-title">核销成功</div>
+        <button wx:if="{{isSuccess == false}}" class="bulletBox-button" bindtap="handleClick" data-boxValue="{{isSuccess}}">确定</button>
+        <button wx:else class="bulletBox-button"  bindtap="handleClick" data-boxValue="{{isSuccess}}">继续扫码</button>
+    </view>
+
+</view>
+

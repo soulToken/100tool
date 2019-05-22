@@ -1,0 +1,54 @@
+page{
+    background:#f7f7f7;
+    height:100%;
+}
+.container2{
+    padding:50rpx 30rpx;
+}
+.box{
+    height:200rpx;
+    background:rgba(255,255,255,1);
+        box-shadow:0px 0px 16rpx 0px rgba(0, 0, 0, 0.2);
+        border-radius:16rpx;
+        margin-bottom:50rpx;
+}
+.box_left{
+    width:215rpx;
+    height:100%;
+    border-radius:16rpx;
+}
+.box_right{
+    padding-left: 35rpx;
+}
+.clinic_name{
+    height:75rpx;
+    font-size:30rpx;
+    font-family:PingFang-SC-Medium;
+    line-height: 75rpx;
+    font-weight:500;
+    border-bottom:1px solid rgba(230,230,230,1);
+}
+.clinic_mess{
+    padding-right:25rpx;
+    padding-top: 20rpx;
+}
+.look_detail{
+    width:110rpx;
+    height:44rpx;
+    background:rgba(26,121,255,1);
+    border:1px solid rgba(26,121,255,1);
+    border-radius:22rpx;
+    font-size:22rpx;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height: 44rpx;
+    text-align: center;
+}
+.description{
+    font-size:22rpx;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    width:0;
+}

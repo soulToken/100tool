@@ -1,0 +1,119 @@
+/* pages/index/index.wxss */
+.container{
+    width:750rpx;
+    height:500rpx;
+    background:#fff;
+}
+.container2{
+    width:450rpx;
+    height:500rpx;
+    background:#fff;
+}
+ec-canvas {
+  height:100%;
+  width:100%;
+}
+
+
+.notice{
+    font-size: 34rpx;
+    font-weight:600;
+    color:rgba(0,0,0,1);
+}
+.change_box{
+    width:80rpx;
+    height:48rpx;
+    line-height: 48rpx;
+    font-size:24rpx;
+    text-align: center;
+    border-radius:8rpx 0prx 0rpx 8rpx;
+}
+.border_1{
+    border-radius:8rpx;
+border:1px solid rgba(25,121,255,1);
+}
+.border_1 .change_box{
+    color:rgba(25,121,255,1)
+}
+.border_1 .change_box.checked{
+    background:rgba(25,121,255,1);
+    color:#fff;
+}
+.scroll_x view{
+    display: inline-block;
+    margin-top:30rpx;
+}
+.box_con{
+    padding:10rpx 26rpx;
+    text-align:center;
+    border-radius:30rpx;
+    margin-left: 20rpx;
+    margin-right:20rpx;
+    font-size: 22rpx;
+    color:#808080;
+    border:1px solid rgba(128,128,128,1)
+}
+.box_con.checked{
+    background:rgba(25,121,255,1);
+    box-shadow:0px 0px 10rpx 0px rgba(25,121,255,0.75);
+    border:none;
+    color:#fff;
+}
+
+
+
+.change_box2{
+    width:80rpx;
+    height:48rpx;
+    line-height: 48rpx;
+    font-size:24rpx;
+    text-align: center;
+    border-radius:8rpx 0prx 0rpx 8rpx;
+}
+.border_12{
+    border-radius:8rpx;
+border:1px solid #24C445;
+}
+.border_12 .change_box{
+    color:#24C445
+}
+.border_12 .change_box2.checked{
+    background:#24C445;
+    color:#fff;
+}
+.scroll_x2 view{
+    display: inline-block;
+    margin-top:30rpx;
+}
+.box_con2{
+    padding:10rpx 26rpx;
+    text-align:center;
+    border-radius:30rpx;
+    margin-left: 20rpx;
+    margin-right:20rpx;
+    font-size: 22rpx;
+    color:#808080;
+    border:1px solid rgba(128,128,128,1)
+}
+.box_con2.checked{
+    background:#24C445;
+    box-shadow:0px 0px 10rpx 0px #24C445;
+    border:none;
+    color:#fff;
+}
+.boy_circle{
+    width:36rpx;
+    height:36rpx;
+    box-shadow:0px 2rpx 4rpx 0rpx rgba(25,121,255,0.75);
+    border:5rpx solid rgba(25,121,255,1); 
+    margin-right:19rpx;
+    border-radius: 50%;
+}
+.girl_circle{
+    width:36rpx;
+    height:36rpx;
+    box-shadow:0px 2rpx 4rpx 0rpx #FFA300;
+    border:5rpx solid #FFA300; 
+    margin-right:19rpx;
+    border-radius: 50%;
+}

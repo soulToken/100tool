@@ -1,0 +1,141 @@
+ /* 当前页面的设置 */
+ page{
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+}
+
+/* 头部20px */
+.addCoupon-top10{
+    margin-top: 29rpx;
+    width: 100%;
+    background: white;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 具体展示的行 */
+.addCoupon-detailView{
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid  #F5F5F5;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+/* 图片显示 */
+.addCoupon-image{
+    width: 40rpx;
+    height: 40rpx;
+    position:absolute;
+    left:20rpx;
+
+}
+
+/* 标题设置 */
+.addCoupon-title{
+    padding-left: 100rpx;
+    height: 100rpx;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+}
+
+.addCoupon-input {
+    width: 420rpx;
+    position:absolute;
+    right: 35rpx;
+    height: 100rpx;
+    font-size:28rpx;
+    text-align:right;    
+}
+
+
+.addCoupon-button-left {
+
+    border: 1px solid  #1A79FF;
+    color: #1A79FF;
+    font-size: 28rpx;
+    width: 180rpx;
+    height: 60rpx;
+    margin-top: 30prx;
+    margin-left: 120rpx;
+    background: white;
+    line-height: 60rpx;
+}
+
+.addCoupon-button-left.selected {
+
+   background: #1A79FF;
+   color: white;
+}
+
+.addCoupon-button-right {
+
+    border: 1px solid  #1A79FF;
+    color: #1A79FF;
+    font-size: 28rpx;
+    width: 180rpx;
+    height: 60rpx;
+    margin-top: 30prx;
+    background: white;
+    margin-right:40rpx;
+    line-height: 60rpx;
+
+}
+
+
+.addCoupon-button-right.selected {
+
+    background: #1A79FF;
+    color: white;
+ }
+.addCoupon-confirm {
+
+    margin:150rpx 20rpx 100rpx 20rpx;
+    background: #1A79FF ;
+    color: white;
+    border-radius: 20rpx;
+    font-size: 38rpx;
+}
+
+
+.addCoupon-detail {
+    position: absolute;
+    right: 82rpx;
+    font-size: 28rpx;
+    color: #B8B8B8;
+    text-align: right;
+    height: 100rpx;
+    line-height: 100rpx;
+    top:0rpx;
+}
+
+.addCoupon-rightArrowImg {
+    position: absolute;
+    width: 18rpx;
+    height: 30rpx;
+    right: 38rpx;
+    top: 35rpx;
+}
+
+
+/* 具体展示的行 */
+.addCoupon-detailTextareaView{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+.addCoupon-textarea {
+    width: 420rpx;
+    padding: 35rpx 0;
+    right: 35rpx;
+    font-size:28rpx;
+    text-align:right;    
+    left:75rpx;
+}

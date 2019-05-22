@@ -1,0 +1,49 @@
+<wxs module="dateUtil" src="../couponList/index.wxs"></wxs>
+<view>
+    <!-- 背景view -->
+    <view class="coupon-headerView">
+        <image class="coupon-headerImg" src="/images/icon_couponbackground.png" />
+        <view class="flex_row coupon_box">
+            <view class=" coupon_left flex_column just_content_sb" style="width:248rpx">
+                <text>
+                    <text style="font-size:12px;">￥</text><text style="font-size:25px">{{couponData.couponAmount}}</text>
+                </text>
+                <text style="margin-top:13rpx;font-size:12px;">满{{couponData.couponAmount}}元可用</text>
+                <view class="coupon_center flex_column al_center just_content_sb">
+                    <view class="half_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="whole_circle"></view>
+                    <view class="half_circle2"></view>
+                </view> 
+            </view>
+            <view class=" flex_1 coupon_right flex_column just_content_sb">
+                <text style="font-size:17px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">{{couponData.couponName}}</text>
+                <text wx:if="{{couponData.couponRemark}}" class="over_two_ellipsis" style="font-size:10px;color:#bfbfbf;">{{couponData.couponRemark}}</text>
+                <text wx:if="{{couponData.expiryDate}}" style="color:#a6a6a6;font-size:12px;">于{{dateUtil.dateFormat(couponData.creationDate,couponData.expiryDate)}}到期</text>
+                <text wx:else style="color:#a6a6a6;font-size:12px;">于{{dateUtil.dateFormat(couponData.endDate)}}到期</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='counpon-allView'>
+        <view class='counpon-detailView'>
+            <div class='counpon-detailInfo'>优惠券名称:{{couponData.couponName}}</div>
+            <div class='counpon-detailInfo'>优惠券金额:{{couponData.couponAmount}}</div>
+            <div  wx:if="{{couponData.expiryDate}}"  class='counpon-detailInfo'>到期时间:{{dateUtil.dateFormat(couponData.creationDate,couponData.expiryDate)}}</div>
+            <div  wx:else  class='counpon-detailInfo'>到期时间:{{dateUtil.dateFormat(couponData.endDate)}}</div>
+            <div  wx:if="{{couponData.couponRemark}}" class='counpon-detailInfo'>优惠说明:{{couponData.couponRemark}}</div>
+        </view>
+
+    </view>
+
+    <button class='counpon-confirmBtn' bindtap="confirmAction">确定核销</button>
+    <customizeBulletBox isSuccess = "{{true}}" isShow="{{isBulletBoxShow}}" bind:bulletBoxClick="bulletBoxClick" />
+</view>
+
+
+

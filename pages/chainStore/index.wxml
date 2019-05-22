@@ -1,0 +1,21 @@
+<view class="container2">
+        <view class="box flex_row" wx:for="{{list}}"  >
+            <view class="box_left" style="background:url({{item.headUrl}}) no-repeat center;background-size:cover;"></view>
+            <view class="flex_1 flex_column box_right">
+                <view class="clinic_name text_ellipsis">{{item.clinicName}}</view>
+                <view class="flex_1 flex_row  clinic_mess">
+                    <view class="flex_1">
+                            <view class="flex_row al_center">
+                                   <image src="/images/address.png" style="width:17rpx;height:22rpx;margin-right:10rpx;"></image>
+                                    <view class="flex_1 description text_ellipsis">{{item.city||''}}{{item.area||''}}{{item.address||''}}</view>
+                            </view>
+                            <view class="flex_row al_center" style="margin-top: 20rpx;">
+                                    <image src="/images/phone.png" style="width:18rpx;height:18rpx;margin-right:10rpx;"></image>
+                                    <view class="flex_1 description text_ellipsis">{{item.edtPhone}}</view>
+                            </view>
+                    </view>
+                    <view class="look_detail" data-id="{{item.clinicId}}" data-index="{{index}}" bindtap="goDetail">查看详情 </view>
+                </view>
+            </view>
+        </view>
+</view>

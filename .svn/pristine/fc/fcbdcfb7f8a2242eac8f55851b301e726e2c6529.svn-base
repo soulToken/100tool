@@ -1,0 +1,50 @@
+<image class="userDetail-backgroundImage" src='/images/icon_userBacgroud.png'>
+</image>
+<image class="userDetail-headerImage" src='{{userInfo.headUrl}}'></image>
+<image wx:if="{{userInfo.sex == 1}}" class="userDetail-gender" src='/images/icon_boy.png'></image>
+<image wx:else class="userDetail-gender" src='/images/icon_girl.png'></image>
+
+<view class="userDetail-InfoView">
+  <view class='userDetail-detailView'>
+    <image class='userDetail-image' src='/images/icon_personalHeader.png'></image>
+    <div class='userDetail-title'>姓名</div>
+    <div class='userDetail-detail'>{{userInfo.nickName}}</div>
+
+  </view>
+
+  <view class='userDetail-detailView'>
+    <image class='userDetail-image' src='/images/icon_userBrithday.png'></image>
+    <div class='userDetail-title'>生日</div>
+    <div class='userDetail-detail'>{{userInfo.birthday ? userInfo.birthday : "暂无"}}</div>
+  </view>
+
+  <view class='userDetail-detailView'  bindtap="callAction">
+    <image class='userDetail-image' src='/images/icon_userPhone.png'></image>
+    <div class='userDetail-title'>手机</div>
+    <div class='userDetail-detail'> {{userInfo.mobile ? userInfo.mobile : "暂无"}} </div>
+  </view>
+
+  <view class='userDetail-detailView' bindtap="changeRemarkAction">
+    <image class='userDetail-image' src='/images/icon_remark.png'></image>
+    <div class='userDetail-title'>备注</div>
+    <div class='userDetail-detail right20'> {{remarkValue?remarkValue : "暂无"}}</div>
+    <image class='userDetail-rightImage' src='/images/icon_rightArrowGray.png'></image>
+  </view>
+
+  <view class='userDetail-detailView'>
+    <image class='userDetail-image' src='/images/icon_userCome.png'></image>
+    <div class='userDetail-title'>来源</div>
+    <div class='userDetail-detail'>{{userInfo.userType == 1 ?"公众号":"小程序"}}</div>
+  </view>
+
+
+</view>
+
+
+<view style="position:fixed;bottom:{{bottom}}px;width:100%;z-index:200;padding-top:10rpx;padding-bottom:8rpx;" class="bottomInput flex_row al_center" wx:if="{{inputShow}}">
+  <input confirm-type="done" type='{{inputType}}' placeholder-style='input-placeholder' focus="{{focus}}" cursor-spacing="4" cursor='{{cursor_position}}' class='input_style flex_1' placeholder='请输入内容' adjust-position='{{false}}' maxlength='19' bindinput="inputChange"
+    bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindconfirm"></input>
+  <view style="height:100%;padding-right:30rpx;position:relative">
+    <view class="submit2" bindtap="change" style="position:relative;z-index:100;">完成</view>
+  </view>
+</view>

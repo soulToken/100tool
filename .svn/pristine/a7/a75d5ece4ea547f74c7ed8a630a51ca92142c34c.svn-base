@@ -1,0 +1,46 @@
+<!-- 头部提示view -->
+<view wx:if="{{appointmentStatus == 1 }}">
+  <view class="orderDetail-notice height120" wx:if="{{paymentAmount}}">
+    <div class="orderDetail-notice-title top25">1.过期未核销的订单，请联系用户，取消订单并退款</div>
+    <div class="orderDetail-notice-title">2.若预约时间冲突，请主动联系用户进行取消</div>
+  </view>
+  <view class="orderDetail-notice" wx:else>
+    <div class="orderDetail-notice-title top25">若预约时间冲突，请主动联系用户进行取消预约</div>
+  </view>
+</view>
+
+
+
+<!-- 信息展示 -->
+<view class='orderDetail-info'>
+  <view class='orderDetail-header'>
+    <div wx:if="{{appointmentName}}" class='orderDetail-headerTitle'>{{appointmentName}}({{appointmentSex}})</div>
+    <div wx:if="{{appointmentMobile && appointmentMobile != 'null'}}" class='orderDetail-headerDetail'>电话:{{appointmentMobile}}</div>
+    <image wx:if="{{appointmentMobile && appointmentMobile != 'null'}}" class="orderDetail-phoneImg" src="/images/icon_phone.png" bindtap="callCustom"></image>
+  </view>
+
+  <view class='orderDetail-allView'>
+    <view class='orderDetail-detailView'>
+      <div class='orderDetail-detailInfo'>预约项目:{{appointmentServeritem}}</div>
+      <div class='orderDetail-detailInfo'>预约技师:{{doctorName}}</div>
+      <div class='orderDetail-detailInfo'>预约时间:{{appointmentDate + " " + appointmentTime}}</div>
+      <div class='orderDetail-detailInfo'>症状信息:{{symptomSelect}}</div>
+      <div class='orderDetail-detailInfo'>备注信息:{{symptomDesc}}</div>
+      <view class="orderDetail-detailPayView" wx:if="{{paymentAmount}}">
+        <image class="orderDetail-dividingLine" src="/images/icon_dividingLine.png"></image>
+        <div class='orderDetail-detailInfo'>支付金额:
+          <text style="color: #FF8000 ">{{paymentAmount}}元</text>
+        </div>
+        <div class='orderDetail-detailInfo'>优惠:{{discountAmount}}元</div>
+        <div wx:if="{{paymentOrderId}}" class='orderDetail-detailInfo'>订单号:{{paymentOrderId}}</div>
+        <div wx:if="{{paymentId}}" class='orderDetail-detailInfo'>支付单号:{{paymentId}}</div>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="orderDetail-btnView" wx:if="{{appointmentStatus == 1 }}">
+  <button class="orderDetail-cancelBtn" bindtap="cancelApointment">取消预约</button>
+  <button wx:if="{{paymentAmount}}" class="orderDetail-confirmBtn" bindtap="scanCode">扫码核销</button>
+  <button wx:else class="orderDetail-confirmBtn" bindtap="confirmAction">确认到店</button>
+</view>

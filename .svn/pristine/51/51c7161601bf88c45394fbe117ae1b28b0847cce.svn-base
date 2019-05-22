@@ -1,0 +1,26 @@
+<!-- 头部 -->
+<view class='mine-fatherView'>
+<image class='mine-fatherImage' src="/images/icon_backgroundDown.png"></image>
+  <view class='mine-fatherView2' >
+
+    <div wx:if="{{isManyClinics}}" class="mine-chainLogo">连锁诊所</div>
+    <div class="mine-title">{{clinicName}}</div>
+  </view>
+
+</view>
+
+
+
+
+<!-- 功能区域 -->
+<!-- 显示功能的view -->
+<view class="mine-functionView">
+  <block wx:for="{{mineDataArr}}" wx:key="{{index}}">
+    <view class='mine-detail' bindtap="{{item.functionName}}" wx:if="{{item.functionName != 'onlineService'}}">
+      <image src="{{item.imgLocation}}" class="mine-image" />
+    </view>
+    <button wx:else open-type="contact" class='mine-detail button' plain='true'>
+      <image src="{{item.imgLocation}}" class="mine-image button"></image>
+    </button>
+  </block>
+</view>

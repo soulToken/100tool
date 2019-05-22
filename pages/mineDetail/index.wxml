@@ -1,0 +1,33 @@
+<image class="mineDetail-backgroundImage" src='/images/icon_backgroundUp.png'></image>
+<image class="mineDetail-headerImage" src='{{imageUrl}}'></image>
+
+<view class="mineDetail-InfoView">
+  <view class='mineDetail-detailView'>
+    <image class='mineDetail-image' src='/images/icon_personalHeader.png'></image>
+    <div class='mineDetail-title'>姓名</div>
+    <div class='mineDetail-detail'>{{userName}}</div>
+
+  </view>
+
+  <view class='mineDetail-detailView'>
+    <image class='mineDetail-image' src='/images/icon_personalPhone.png'></image>
+    <div class='mineDetail-title'>电话</div>
+    <div class='mineDetail-detail'>{{userPhone}}</div>
+  </view>
+
+
+</view>
+
+<view class="mineDetail-actionView">
+  <view class='mineDetail-detailView top20' bindtap='changePasswordAction'>
+    <image class='mineDetail-image' src='/images/icon_changePassword.png'></image>
+    <div class='mineDetail-title'>修改密码</div>
+    <image class='mineDetail-rightImage' src='/images/icon_rightArrowGray.png'></image>
+  </view>
+
+  <view class='mineDetail-detailView ' bindtap='logoutAction'>
+    <image class='mineDetail-image' src='/images/icon_logout.png'></image>
+    <div class='mineDetail-title'>账号注销</div>
+    <image class='mineDetail-rightImage' src='/images/icon_rightArrowGray.png'></image>
+  </view>
+</view>

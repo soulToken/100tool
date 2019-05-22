@@ -1,0 +1,22 @@
+<!-- 头部蓝色区域 -->
+
+<view class='scanOrder-header'>
+    <div class='scanOrder-titleText'>支付金额</div>
+    <text class="scanOrder-yuan"><text class="scanOrder-payAmount">{{orderData.paymentAmount}}</text> 元</text>
+</view>
+
+<view class='scanOrder-allView'>
+    <view class='scanOrder-detailView'>
+            <div class='scanOrder-detailInfo'>姓名:{{orderData.appointmentName}}</div>
+            <div class='scanOrder-detailInfo'>电话:{{orderData.appointmentMobile ? orderData.appointmentMobile: "未填写"}}</div>
+            <div class='scanOrder-detailInfo'>购买项目:{{orderData.appointmentServeritem ? orderData.appointmentMobile: "到店选择"}}</div>
+            <div class='scanOrder-detailInfo'>购买时间:{{orderData.appointmentDate}} {{orderData.appointmentTime}}</div>
+            <div wx:if="{{orderData.paymentOrderId}}" class='scanOrder-detailInfo'>订单号:{{orderData.paymentOrderId}}</div>
+            <div  wx:if="{{orderData.paymentId}}" class='scanOrder-detailInfo'>支付订单号:{{orderData.paymentId}}</div>
+    </view>
+</view>
+
+<button class='scanOrder-confirmBtn' bindtap="confirmAction">确定核销</button>
+ <customizeBulletBox isSuccess = "{{true}}" isShow="{{isBulletBoxShow}}" bind:bulletBoxClick="bulletBoxClick" />
+
+

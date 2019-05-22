@@ -1,0 +1,126 @@
+.userInfo-image {
+    width: 412rpx;
+    height: 276rpx;
+    display: block;
+    margin-top: 238rpx;
+    margin-left: 170rpx;
+
+}
+
+.userInfo-text {
+    display: block;
+    font-size: 36rpx;
+    color: #000000;
+    text-align: center;
+    margin-top: 30rpx;
+}
+
+/* 搜索view */
+.search {
+    display: flex;
+    flex-direction: row;
+    background: #F2F2F2;
+    width: 100%;
+    height: 104rpx;
+    align-items: center;
+}
+/* 输入元素 */
+.searchItem {
+    display: flex;
+    width: 80%;
+    background: white;
+    flex-direction: row;
+    margin-right: 28rpx;
+    margin-left: 28rpx;
+    height: 80rpx;
+}
+
+/* 输入框图片 */
+.searchItem image {
+    height: 30rpx;
+    width: 30rpx;
+    align-self: center;
+    margin-left: 10rpx;
+    margin-right: 20rpx;
+}
+
+/* 输入框 */
+.searchItem input {
+    flex: 1;
+    font-size: 28rpx;
+    height: 80rpx;
+    align-items: center;
+    width: 100%;
+}
+
+.search-cancel {
+  width:80rpx;
+  font: 24rpx;
+}
+
+.userInfo-detailView {
+  margin-bottom: 30rpx;
+  margin-top: 124rpx;
+}
+
+.userInfo-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20rpx;
+}
+
+.userInfo-title {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  color: #000;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.userInfo-contente {
+  margin-top: 5px;
+  font-size: 24rpx;
+  color: #7f7f7f;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.userInfo-detailItem {
+  background-color: #fff;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.20);
+  margin-top: 38rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  height: 150rpx;
+  position: relative;
+  border-radius: 16px;
+}
+
+
+.userInfo-img {
+  margin-top: 35rpx;
+  margin-left: 10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+
+
+.sub_index_search_box{
+    height:104rpx;
+    width:100%;
+    background:#eaeaea;
+}
+
+
+.sub_index_search_con{
+    height:81rpx;
+    width:90%;
+    background:#fff;
+}

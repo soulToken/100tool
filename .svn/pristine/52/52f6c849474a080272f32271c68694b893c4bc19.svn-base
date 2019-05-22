@@ -1,0 +1,74 @@
+ /* 当前页面的设置 */
+ page {
+   width: 100%;
+   height: 100%;
+ }
+
+ /* 页面头部 */
+ .scanOrder-header {
+   background: #1A79FF;
+   height: 375rpx;
+   text-align: center;
+ }
+
+ /* 头部title */
+ .scanOrder-titleText {
+   padding-top: 60rpx;
+   display: block;
+   color: white;
+   font-size: 28rpx;
+   width: 100%;
+ }
+
+ /* 头部title */
+ .scanOrder-payAmount {
+   color: white;
+   font-size: 100rpx;
+ }
+
+ /* 头部title */
+ .scanOrder-yuan {
+   color: white;
+   font-size: 30rpx;
+ }
+
+ /* 页面信息展示 */
+ .scanOrder-allView {
+   position: absolute;
+   width: 700rpx;
+   top: 281rpx;
+   left: 25rpx;
+   background: white;
+   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.20);
+   border-radius: 16px;
+
+ }
+
+ .scanOrder-detailView {
+   margin-top: 30rpx;
+   margin-bottom: 40rpx;
+   width: 700rpx;
+ }
+
+ /* 手机号码验证码提示 */
+ .scanOrder-detailInfo {
+   position: relative;
+   font-size: 28rpx;
+   padding-left: 30rpx;
+   padding-top: 20rpx;
+   display: block;
+   color: #666666;
+
+ }
+
+
+
+ /* 按钮 */
+ .scanOrder-confirmBtn {
+   margin-left: 50rpx;
+   margin-right: 50rpx;
+   margin-top: 550rpx;
+   background: #1A79FF;
+   color: white;
+   border-radius: 20rpx;
+ }

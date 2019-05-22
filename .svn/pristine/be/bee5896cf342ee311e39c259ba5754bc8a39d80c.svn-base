@@ -1,0 +1,102 @@
+const formatTime = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+//日期格式化
+const formatDate = date => {
+
+  const year = date.getFullYear()
+
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('-')
+}
+
+const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+const dateArr = ["星期日", "星期一", "星期二", '星期三', '星期四', '星期五', '星期六']
+// 获取出去今天之外的过去dayNum 天数
+const getPastDateArr = function (dayNum) {
+  var oDate = new Date();   //获取当前时间  
+  var dayArr = []
+  for (var i = 0; i < dayNum; i++) {
+    var date = new Date(oDate.getTime() - i * 24 * 60 * 60 * 1000)
+    var seperator = "-";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator + month + seperator + strDate
+    dayArr.push({
+      value: dateArr[date.getDay()],
+      label: (date.getMonth() + 1) + '.' + date.getDate(),
+      time: currentdate
+    });  
+  }
+  //倒序 并且删除最后一个 今天的数据
+  dayArr.reverse();
+  dayArr.pop();
+  return dayArr;
+}
+
+const getFutureDateArr = function (dayNum) {
+  var oDate = new Date();   //获取当前时间  
+  var dayArr = []
+  for (var i = 0; i < dayNum; i++) {
+    var date = new Date(oDate.getTime() + i * 24 * 60 * 60 * 1000)
+    var seperator = "-";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator + month + seperator + strDate
+    dayArr.push({
+      value: dateArr[date.getDay()],
+      label: (date.getMonth() + 1) + '.' + date.getDate(),
+      time: currentdate
+    });   //把未来几天的时间放到数组里
+  }
+  return dayArr;
+}
+
+const getClicicName = function () {
+  var clinicBaseinfo = wx.getStorageSync('clinicBaseinfo')
+  if (clinicBaseinfo && clinicBaseinfo.clinicName) {
+    wx.setNavigationBarTitle({
+      title: clinicBaseinfo.clinicName || ""
+    })
+  }
+}
+
+
+
+
+module.exports = {
+  formatTime: formatTime,
+  formatDate: formatDate,
+  getFutureDateArr: getFutureDateArr,
+  getPastDateArr:getPastDateArr,
+  getClicicName: getClicicName
+}

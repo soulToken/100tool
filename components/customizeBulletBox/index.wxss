@@ -1,0 +1,42 @@
+/* 背景 */
+.bulletBox-backgroud {
+    background: rgba(0,0,0,0.70);
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+
+}
+/* 功能区 */
+.bulletBox-function {
+    width: 541rpx;
+    height: 568rpx;
+    background: white;
+    margin-top: 200rpx;
+    margin-left:105rpx;
+}
+/* 图片 */
+.bulletBox-img {
+    width: 142rpx;
+    height: 142rpx;
+    margin-top: 129rpx;
+    margin-left: 199rpx;
+}
+/* 文字 */
+.bulletBox-title {
+    width: 100%;
+    text-align: center;
+    font-size: 38rpx;
+    color: #000000 ;
+    display:block;
+    margin-top: 35rpx;
+}
+/* 按钮 */
+.bulletBox-button {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 80rpx;
+    color: white;
+    background: #1A79FF ;
+    border-radius: 16rpx;
+}

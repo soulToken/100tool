@@ -1,0 +1,82 @@
+<form bindsubmit="formSubmit">
+    <view class="addCoupon-top10">
+
+        <view class='addCoupon-detailView'>
+            <image class='addCoupon-image' src='/images/icon_couponName.png'></image>
+            <div class='addCoupon-title'>优惠名称</div>
+            <input class="addCoupon-input" placeholder="请输入优惠券名称（16字）" maxlength="16" name="couponName"></input>
+        </view>
+        <view class='addCoupon-detailTextareaView'>
+            <div class='addCoupon-title'>优惠说明</div>
+            <image class='addCoupon-image' src='/images/icon_couponDescription.png'></image>
+            <textarea class="addCoupon-textarea" auto-height placeholder="         请输入优惠券说明(50字)" maxlength="50" name="couponDesc"></textarea>
+        </view>
+    </view>
+
+    <view class="addCoupon-top10">
+
+        <view class='addCoupon-detailView'>
+            <image class='addCoupon-image' src='/images/icon_couponMoney.png'></image>
+            <div class='addCoupon-title'>优惠金额</div>
+            <input class="addCoupon-input" placeholder="请输入优惠券金额（整数）" type='number' maxlength="5" name="couponMoney"></input>
+        </view>
+        <view class='addCoupon-detailView'>
+            <div class='addCoupon-title'>优惠门槛</div>
+            <image class='addCoupon-image' src='/images/icon_couponThreshold.png'></image>
+            <input class="addCoupon-input" placeholder="请输入满减金额（整数）" type='number' maxlength="6" name="couponThreshold"></input>
+        </view>
+    </view>
+
+
+    <view class="addCoupon-top10">
+
+        <view class='addCoupon-detailView'>
+            <image class='addCoupon-image' src='/images/icon_couponScenes.png'></image>
+            <div class='addCoupon-title'>使用场景</div>
+            <button class='addCoupon-button-left {{isOnline ?"selected":""}}' bindtap="selectScenes" data-location="left">线上优惠</button>
+            <button class='addCoupon-button-right {{isOnline == false?"selected":""}}' bindtap="selectScenes"
+                data-location="right">门店使用</button>
+        </view>
+
+    </view>
+
+    <view class="addCoupon-top10">
+
+        <view class='addCoupon-detailView'>
+            <image class='addCoupon-image' src='/images/icon_couponTime.png'></image>
+            <div class='addCoupon-title'>有效期限</div>
+            <button class='addCoupon-button-left {{!isFixedTime ?"selected":""}}' bindtap="selectTime" data-location="left">领取失效</button>
+            <button class='addCoupon-button-right {{isFixedTime ?"selected":""}}' bindtap="selectTime" data-location="right">固定时段</button>
+        </view>
+        <view wx:if="{{isFixedTime}}">
+            <view class='addCoupon-detailView'>
+                <image class='addCoupon-image' src='/images/icon_couponStartTime.png'></image>
+                <div class='addCoupon-title'>开始时间</div>
+                <picker mode="date" value="{{date}}" start="2019-01-01" end="{{null}}}" bindchange="bindStartDateChange" name="startTime">
+                    <div class='addCoupon-detail'>{{starTime}}</div>
+                    <image class='addCoupon-rightArrowImg' src='/images/icon_rightArrowGray.png'></image>
+                </picker>
+            </view>
+            <view class='addCoupon-detailView'>
+                <image class='addCoupon-image' src='/images/icon_couponAging.png'></image>
+                <div class='addCoupon-title'>结束时间</div>
+                <picker mode="date" value="{{date}}" start="2019-01-01" end="{{null}}}" bindchange="bindEndDateChange" name="endTime">
+                <div class='addCoupon-detail'>{{endTime}}</div>
+                <image class='addCoupon-rightArrowImg' src='/images/icon_rightArrowGray.png'></image>
+            </picker>
+            </view>
+        </view>
+        <view class='addCoupon-detailView' wx:else>
+            <image class='addCoupon-image' src='/images/icon_couponAging.png'></image>
+            <div class='addCoupon-title'>结束时效</div>
+            <input class="addCoupon-input" placeholder="请输入优惠券领取几天后失效" type='number' maxlength="3" name="couponEndTime"></input>
+        </view>
+    </view>
+
+    <view>
+
+    </view>
+
+    <button class='addCoupon-confirm' form-type="submit">确认发放</button>
+
+</form>

@@ -1,0 +1,39 @@
+<!-- 头部 -->
+
+<view class='mine-fatherView' style="background-image: url('/images/icon_backgroundUp.png'); background-size: cover; ">
+  <view class='mine-fatherView2' >
+
+    <div wx:if="{{isManyClinics}}" class="mine-chainLogo">连锁诊所</div>
+    <div class="mine-title">{{clinicName}}</div>
+  </view>
+
+</view>
+
+<!-- 登录view -->
+<form bindsubmit="formSubmit">
+  <view class="login-view">
+    <!-- 输入框view -->
+    <view class="login-inputView">
+      <view class='login-inputItem' style="margin-top:71rpx; ">
+        <image src='/images/icon_loginPhone.png' />
+        <input placeholder='请输入旧密码' password class="codeText" maxlength="12" name="oldPassword"></input>
+      </view>
+    </view>
+    <!-- 输入框view -->
+    <view class="login-inputView">
+      <view class='login-inputItem' style="margin-top:30rpx;">
+        <image src='/images/icon_oldPassword.png' />
+        <input placeholder='请输入新密码' password class="codeText" maxlength="12" name="newPassword"></input>
+      </view>
+    </view>
+
+    <view class="login-inputView">
+      <view class='login-inputItem' style="margin-top:30rpx;">
+        <image src='/images/icon_newPassword.png' />
+        <input placeholder='请输入再次输入新密码' password class="codeText" maxlength="12" name="newPassword2"></input>
+      </view>
+    </view>
+    <!-- 登录按钮 -->
+    <button class="login-loginBtn" form-type="submit">确定修改</button>
+  </view>
+</form>

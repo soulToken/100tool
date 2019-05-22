@@ -1,0 +1,18 @@
+<view>
+    <!-- 头部提示view -->
+    <view class="header-view">
+        <div class="header-title">您可以核销用户优惠券或用户已购买的服务项目噢~</div>
+    </view>
+    <!-- 输入框view -->
+    <view class="search">
+        <view class='searchItem'>
+            <image src='/images/icon_search.png' />
+            <input placeholder='请输入您的核销码' bindconfirm="searchSubmit" confirm-type="search"></input>
+        </view>
+    </view>
+    <!-- 核销的图片展示 -->
+    <view class="scanImg-view" bindtap="scanCodeAction">
+        <image class="scanImg" src='/images/icon_scanCodeDetail.png' />
+    </view>
+    <customizeBulletBox isSuccess = "{{false}}" isShow="{{isBulletBoxShow}}" bind:bulletBoxClick="bulletBoxClick" />
+</view>

@@ -1,0 +1,78 @@
+<view class="store_mess_top flex_row " >
+    <view class="flex_row just_content_center" style="margin-top:75rpx;" bindtap="changeName">
+        <view class="clinic_name">
+            {{clinicName}}
+        </view>
+        <image src="/images/change.png" style="width:28rpx;height:28rpx;margin-top:8rpx;" ></image>
+    </view>
+</view>
+<view class="mess_container">
+    <view class="inner_container flex_column" style="padding-left:20rpx;">
+            <view class="flex_row al_center" style="padding:30rpx 0">
+                    <image src="/images/address2.png" style="width:26rpx;height:32rpx;margin-left:19rpx;margin-right:23rpx;"></image>
+                    <view class="address">{{clicicInfo.city||''}} {{clicicInfo.area||''}} {{clicicInfo.address||''}}</view>   
+            </view>
+            <view class="line"></view>
+            <view class="flex_row al_center" style="padding:30rpx 0" bindtap="changeNumber">
+                    <image src="/images/phone.png" style="width:26rpx;height:26rpx;margin-left:19rpx;margin-right:23rpx;"></image>
+                    <view class="phone flex_1">{{edtPhone}}</view>  
+                    <image src="/images/icon_rightArrowGray.png" style="width:15rpx;height:28rpx;margin-left:19rpx;margin-right:23rpx;"></image>
+            </view>
+    </view>
+</view>
+<view class="introduce_box flex_column">
+    <view class="flex_row al_center just_content_center"   bindtap="showArea">
+            <image src="/images/introduce_title.png" style="width:27rpx;height:29rpx;margin-right:26rpx;"></image>
+            <view class="introduce_title">机构简介</view>
+    </view>
+    <view class="introduce_text"  wx:if="{{showTextArea}}"  bindtap="showArea">
+            {{clinicIntroduce}}
+    </view >
+    <view wx:else>
+            <textarea  bindinput="textAreaInput"  bindblur="textAreaBlur" class="introduce_text " focus="{{true}}" cursor="{{areaCursor}}"  value="{{clinicIntroduce}}" maxlength="500" auto-height="{{true}}"></textarea>  
+            <view   class="notice flex_row just_content_end">
+                {{areaCursor}}/500
+            </view>
+    </view>
+   
+</view>
+
+<view class="pic_box flex_column">
+        <view class="flex_row al_center just_content_center" style="margin-bottom:42rpx;">
+                <image src="/images/pic.png" style="width:27rpx;height:21rpx;margin-right:26rpx;"></image>
+                <view class="introduce_title">机构图片</view>
+                
+        </view>
+        <view class="flex_wrap">
+                <view style="width:50%" class="pic_contain"  wx:for="{{picList}}" wx:key="{{index}}">
+                    <view class="wh100 pic_inner_box">
+                        <view class="wh100" style="background:url({{item.fileUrl}}) no-repeat center;background-size:cover"></view>
+                        <view class="close_pic">
+                              <image style="height:100%;width:100%" src="/images/close.png"  data-id="{{item.fileId}}"  data-index="{{index}}" data-url="{{item.fileUrl}}" bindtap="delect"></image>
+                        </view>
+                    </view>
+                </view>
+                    <view style="width:50%" class="pic_contain"  bindtap="changeUrl">
+                            <view class="wh100 pic_inner_box">
+                                <view class="wh100 flex_row al_center just_content_center">
+                                    <image src="/images/add_pic.png" style="width:84rpx;height:84rpx;"></image>
+                                </view>
+                            </view>
+                    </view>
+        </view>
+
+
+</view>
+
+<!-- wx:if="{{inputShow}}" -->
+<!-- <view class='pocket_input' style='bottom:{{height}}px;'  > -->
+        <view style="position:fixed;bottom:{{bottom}}px;width:100%;z-index:200;padding-top:10rpx;padding-bottom:8rpx;" class="bottomInput flex_row al_center"   wx:if="{{inputShow}}" >
+            <input confirm-type="done" type='{{inputType}}' placeholder-style='input-placeholder'  focus="{{focus}}"  cursor-spacing="4" cursor='{{cursor_position}}' class='input_style flex_1' placeholder='请输入内容'   adjust-position='{{false}}' maxlength='30'  bindinput="inputChange" bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindconfirm"></input> 
+            <view style="height:100%;padding-right:30rpx;position:relative"> 
+            <view class="submit2" bindtap="change"  style="position:relative;z-index:100;">完成</view>
+            </view> 
+        </view>
+        <!-- </view> -->
+<view class="submit" bindtap="allChange">
+        保存修改
+</view>

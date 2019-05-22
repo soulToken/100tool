@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "扫码核销",
+  "usingComponents": {
+    "customizeBulletBox": "/components/customizeBulletBox/index"
+  }
+}

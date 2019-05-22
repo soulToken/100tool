@@ -1,0 +1,257 @@
+import {
+  getClinicBaseinfo,
+  getClinicEnvironmentInfo,
+  modifyClinicInfo,
+  modifyClinicEnvironmentInfo
+} from '../../utils/api'
+
+import {
+  upLoadImg
+} from '../../utils/http'
+
+const app = getApp()
+
+Page({
+  data: {
+    focus: false,
+    showTextArea: true,
+    inputShow: false,
+    areaCursor: 0,
+    bottom: 0,
+    length: 0,
+    clinicName: null,
+    edtPhone: null,
+    clinicIntroduce: null,
+    showKey: false,
+    clicicInfo: null,
+    inputType: 'text',
+    inputValue: null,
+    picList: []
+
+  },
+  onLoad: function(option) {
+
+  
+    var clicicInfo = wx.getStorageSync('clicicInfo')
+    this.setData({
+      clicicInfo: clicicInfo,
+      clinicName: clicicInfo.clinicName,
+      edtPhone: clicicInfo.edtPhone,
+      clinicIntroduce: clicicInfo.clinicIntroduce
+    })
+    this.getEnvironment()
+  },
+  onShow() {
+
+  },
+  bindfocus: function(e) {
+    this.setData({
+      bottom: e.detail.height
+    })
+  },
+  getEnvironment() {
+ 
+    getClinicEnvironmentInfo().then((res) => {
+      if (!res.result || !res.result.clinicEnvironmentList) {
+        this.setData({
+          picList: []
+        })
+        return
+      }
+      this.setData({
+        picList: res.result.clinicEnvironmentList || []
+      })
+    })
+  },
+
+  //监听input失去焦点
+
+  bindblur: function(e) {
+    this.hide()
+  },
+  hide() {
+    this.setData({
+      inputShow: false,
+      focus: true
+    })
+  },
+  changeName() {
+    this.setData({
+      inputType: 'text',
+      inputShow: true,
+      inputValue: '',
+      focus: true
+    })
+  },
+  changeNumber: function() {
+    this.setData({
+      inputType: 'number',
+      inputShow: true,
+      focus: true,
+      inputValue: ''
+    })
+  },
+  inputChange(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  change() {
+    var type = this.data.inputType;
+    var inputValue = this.data.inputValue;
+    if (inputValue.trim().length == 0) {
+      wx.showToast({
+        title: '输入内容不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (type == "number") {
+      if (inputValue.length < 11) {
+        wx.showToast({
+          title: '手机号格式错误请重新输入',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+      this.setData({
+        edtPhone: inputValue
+      })
+    } else {
+      this.setData({
+        clinicName: inputValue
+      })
+    }
+  },
+  showArea() {
+    this.setData({
+      showTextArea: false,
+      areaCursor: this.data.clinicIntroduce.length
+    })
+  },
+  textAreaBlur() {
+    this.setData({
+      showTextArea: true,
+    })
+  },
+  textAreaInput(e) {
+    console.log(e.detail.value);
+    this.setData({
+      clinicIntroduce: e.detail.value,
+      areaCursor: e.detail.value.length
+    })
+  },
+  cancle() {
+    setTimeout(() => {
+      this.setData({
+        inputShow: true,
+        focus: true
+      })
+    }, 20)
+  },
+  bindfocus2() {
+
+    setTimeout(() => {
+      this.setData({
+        inputShow: true,
+        focus: true,
+
+      })
+    }, 400)
+  },
+  bindconfirm(e) {
+    console.log('ee')
+  },
+  changeUrl() {
+    console.log(upLoadImg, 111)
+    var self = this;
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function(res) {
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: upLoadImg, //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'image',
+          formData: {
+            // 'image': tempFilePaths[0]
+          },
+          success: function(res) {
+            var data = res.data
+            var param = JSON.parse(data)
+            if (param.resultCode != "1000") {
+              wx.showToast({
+                title: '上传失败',
+                icon: 'none',
+                duration: 2000
+              })
+              return
+            }
+
+            var url = param.result.url;
+            var param = {
+  
+              fileUrl: url
+            }
+            self.modifyPic(param)
+
+          }
+        })
+
+      }
+    })
+  },
+  delect(e) {
+    var index = e.target.dataset.index,
+      url = e.target.dataset.url;
+    var id = e.target.dataset.id
+    var param = {
+      fileId: id,
+      fileUrl: url
+    }
+    this.modifyPic(param)
+  },
+  allChange() {
+    this.changeClinic()
+  },
+  // modifyClinicInfo
+  changeClinic() {
+
+    var param = {
+      "clinicName": this.data.clinicName,
+      "clinicIntroduce": this.data.clinicIntroduce,
+      "edtPhone": this.data.edtPhone,
+    }
+
+    modifyClinicInfo(param).then((res) => {
+      wx.showToast({
+        title: '修改成功',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+  },
+  modifyPic(param) {
+    var self = this;
+    modifyClinicEnvironmentInfo(param).then((res) => {
+      if (param.fileId) {
+        //走删除操作
+        var newArr = this.data.picList.filter((item) => {
+          return item.fileUrl != param.fileUrl
+        })
+        this.setData({
+          picList: newArr
+        })
+      } else {
+       
+        self.getEnvironment()
+      }
+
+    })
+  }
+
+})

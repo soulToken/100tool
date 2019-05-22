@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/echart/index",
+    "pages/index/index",
+    "pages/login/index",
+    "pages/storeDetail/index",
+    "pages/chainStore/index",
+    "pages/tabHome/index",
+    "pages/tabOrder/index",
+    "pages/tabMine/index",
+    "pages/tabUser/index",
+    "pages/scanCode/index",
+    "pages/scanCouponDetail/index",
+    "pages/scanOrderDetail/index",
+    "pages/orderDetail/index",
+    "pages/createCoupon/index",
+    "pages/mineDetail/index",
+    "pages/couponList/index",
+    "pages/appointmentManagement/index",
+    "pages/webview/index",
+    "pages/authorization/index",
+    "pages/changePassword/index",
+    "pages/colleague/index",
+    "pages/userDetail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000 ",
+    "selectedColor": "#1A79FF",
+    "list": [
+      {
+        "pagePath": "pages/tabHome/index",
+        "text": "工作台",
+        "iconPath": "/images/tabbar/home_normal.png",
+        "selectedIconPath": "/images/tabbar/home_select.png"
+      },
+      {
+        "pagePath": "pages/tabUser/index",
+        "text": "用户",
+        "iconPath": "/images/tabbar/userInfo_normal.png",
+        "selectedIconPath": "/images/tabbar/userInfo_select.png"
+      },
+      {
+        "pagePath": "pages/tabMine/index",
+        "text": "我的",
+        "iconPath": "/images/tabbar/mine_normal.png",
+        "selectedIconPath": "/images/tabbar/mine_select.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

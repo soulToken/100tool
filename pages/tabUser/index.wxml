@@ -1,0 +1,35 @@
+
+ 
+<view style="width:100%;height:100%;position:relative;font-size: 28rpx;background:#fff;" wx:if="{{userInfoList.length > 0}}">
+  <view style="position: fixed;top:0;width:100%;z-index: 10000;">
+    <view class="sub_index_search_box flex_row al_center just_content_center">
+      <view class="sub_index_search_con flex_row al_center flex_1 searchItem" style="padding-left: 24rpx;margin-left: 18rpx;">
+        <i-icon type="search" size="20" color="#000000" />
+        <image src='/images/icon_search.png'/>
+        <view class="flex_1 flex_row al_center" style="width:100%;height:100%;">
+          <input bindconfirm="searchSubmit" value='{{inputValue}}' confirm-type="search" placeholder="请输入手机号或昵称"  />
+        </view>
+
+      </view>
+      <text bindtap="cancelSearch" style="font-size:32rpx;color:#356bb3;margin-left: 18rpx;margin-right: 26rpx;">取消</text>
+    </view>
+  </view>
+
+ </view>
+
+  <view class="userInfo-detailView" wx:if="{{userInfoList.length > 0}}">
+    <view class="userInfo-detailItem" wx:for="{{userInfoList}}" wx:key="{{index}}" bindtap="checkUserInfoDetail" data-userinfo='{{item}}'>
+
+      <image src='{{item.headUrl}}' class='userInfo-img'></image>
+      <view class='userInfo-info'>
+        <view class='userInfo-title'>{{item.nickName}}</view>
+        <view wx:if="{{item.noteName}}" class='userInfo-contente'>{{item.noteName}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view wx:else>
+    <image class='userInfo-image' src="/images/icon_userNoData.png"></image>
+    <text class='userInfo-text'>暂无相关数据</text>
+  </view>

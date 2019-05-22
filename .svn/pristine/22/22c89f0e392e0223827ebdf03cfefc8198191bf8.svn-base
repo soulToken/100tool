@@ -1,0 +1,30 @@
+<!-- 头部 -->
+
+<image class="login-headerImage" src='/images/icon_backgroundUp.png'></image>
+<div class="login-title">100健康欢迎您</div>
+
+<!-- 登录view -->
+<view class="login-view">
+        <!-- 输入框view -->
+        <view class="login-inputView">
+            <view class='login-inputItem' style="margin-top:71rpx; ">
+                <image src='/images/icon_loginPhone.png' />
+                <input placeholder='请输入您的手机号码' type='number'  class="codeText"  maxlength="11"  bindinput="bindPhoneInput"></input>
+            </view>
+        </view>
+            <!-- 输入框view -->
+    <view class="login-inputView">
+        <view class='login-inputItem' style="margin-top:30rpx;">
+            <image src='/images/icon_loginPassword.png' />
+            <input wx:if="{{isCodeLogin}}" placeholder='请输入验证码' type='number'  class="phoneText"  maxlength="6"  bindinput="bindCodeInput"></input>
+            <input wx:else placeholder='请输入登陆密码'  class="phoneText"  maxlength="16"  bindinput="bindCodeInput" password></input>
+            <div wx:if="{{isCodeLogin}}" class="login-codeBtn" bindtap="getCodeAction">
+                <text>{{btnText}}</text>
+            </div>
+        </view>
+    </view>
+    <div wx:if="{{isCodeLogin == false}}" class="login-switchBtn" bindtap="switchLoginTypeAction">验证码登陆</div>
+    <div wx:else class="login-switchBtn" bindtap="switchLoginTypeAction">密码登陆</div>
+    <!-- 登录按钮 -->
+    <button class="login-loginBtn" bindtap="loginAction">登录</button>
+</view>

@@ -1,0 +1,72 @@
+/* 头部提示view */
+.header-view{
+    background: #FF8000;
+    height: 90rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+/* 头部提示文字*/
+.header-title{
+    color: white;
+    width: 100%;
+    font-size: 27rpx;
+    text-align: center;
+    align-content: center;
+}
+
+
+/* 搜索view */
+.search {
+    display: flex;
+    flex-direction: row;
+    background: #F2F2F2;
+    width: 100%;
+    height: 104rpx;
+    align-items: center;
+}
+
+/* 输入元素 */
+.searchItem {
+    display: flex;
+    width: 100%;
+    background: white;
+    flex-direction: row;
+    margin-right: 28rpx;
+    margin-left: 28rpx;
+    height: 80rpx;
+}
+
+/* 输入框图片 */
+.searchItem image {
+    height: 30rpx;
+    width: 30rpx;
+    align-self: center;
+    margin-left: 10rpx;
+    margin-right: 20rpx;
+}
+
+/* 输入框 */
+.searchItem input {
+    flex: 1;
+    font-size: 28rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+}
+/* 扫码核销的view */
+.scanImg-view {
+
+    width: 100%;
+    height: 446rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+/* 扫码核销的图片 */
+.scanImg {
+    margin-top: 200rpx;
+    width: 353rpx;
+    height: 446rpx;
+    
+}

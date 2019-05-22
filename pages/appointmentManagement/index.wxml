@@ -1,0 +1,48 @@
+<view class='flex_column' style="width:100%;height:100%;overflow:hidden;">
+  <view class="order-timeView">
+    <view class='register-plan-content'>
+      <scroll-view scroll-x class='x-scroll' scroll-into-view="{{scrollToView}}">
+        <view class='date-bar'>
+          <view class='date-item {{selectDate==item.time?"selected":""}}' data-id='{{item.time}}' bindtap="chooseDate" wx:for="{{dateArr}}" wx:key="{{index}}" id="{{'id'+item.time}}">
+            <view class='date-item-date'>
+              <text>{{item.label}}</text>
+            </view>
+            <view class='date-item-week'>
+              <text class='date-item-week'>{{item.value}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="order-dataView flex_1" >
+    <view class="order-totalData">
+      <view class="order-dataItem">
+        <div class="order-totalData-title">当日预约</div>
+        <div class="order-totalData-num">{{totalNum}}</div>
+      </view>
+      <view class="order-dataItem" style="border-left: 1rpx solid white;border-right: 1px solid white;">
+        <div class="order-totalData-title">已完成</div>
+        <div class="order-totalData-num">{{completeNum}}</div>
+      </view>
+      <view class="order-dataItem">
+        <div class="order-totalData-title">取消预约</div>
+        <div class="order-totalData-num">{{cancelNum}}</div>
+      </view>
+    </view>
+
+    <view class="order-detailView">
+      <view class="order-detailItem" wx:for="{{appointmentList}}" wx:key="{{index}}" bindtap="checkOrderDetail" data-appointmentid='{{item.id}}'>
+        <div wx:if="{{item.appointmentName.length > 0}}" class="order-detailItem-name">{{item.appointmentName}}</div>
+        <div wx:if="{{item.appointmentServeritem.length > 0}}" class="order-detailItem-project">项目:{{item.appointmentServeritem}}</div>
+        <div wx:if="{{item.appointmentMobile.length > 0 && item.appointmentMobile != 'null'}}" class="order-detailItem-phone">手机:{{item.appointmentMobile}}</div>
+        <div wx:if="{{item.appointmentDate.length > 0}}" class="order-detailItem-time">{{item.appointmentDate}}</div>
+        <image wx:if="{{item.appointmentStatus == 1 }}" class="order-detailItem-status" src="/images/icon_statusWait.png"></image>
+        <image wx:elif="{{item.appointmentStatus == 4 }}" class="order-detailItem-status" src="/images/icon_statusCancel.png"></image>
+        <image wx:else class="order-detailItem-status" src="/images/icon_statusDone.png"></image>
+      </view>
+
+    </view>
+  </view>
+</view>

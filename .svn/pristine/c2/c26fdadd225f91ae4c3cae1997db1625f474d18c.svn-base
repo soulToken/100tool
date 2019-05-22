@@ -1,0 +1,18 @@
+<view class="colleague-detailView" wx:if="{{colleagueList.length > 0}}">
+  <view class="colleague-detailItem" wx:for="{{colleagueList}}" wx:key="{{index}}" bindtap="checkcolleagueDetail">
+
+    <image src='{{item.headUrl}}' class='colleague-img'></image>
+    <view class='colleague-info'>
+      <view class='colleague-title'>{{item.doctorName}}</view>
+      <view wx:if="{{item.positio}}" class='colleague-contente'>职位:{{item.positio}}</view>
+      <view wx:if="{{item.mobile}}" class='colleague-phone'>电话:{{item.mobile}}</view>
+    </view>
+
+
+  </view>
+</view>
+
+<view wx:else>
+  <image class='colleague-image' src="/images/icon_userNoData.png"></image>
+  <text class='colleague-text'>暂无相关数据</text>
+</view>

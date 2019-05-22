@@ -1,0 +1,113 @@
+/* 头部 */
+.orderDetail-notice{
+    background: #FF8000;
+    height: 90rpx;
+    width: 100%;
+    align-items: center;
+}
+
+.orderDetail-notice.height120 {
+    height: 124rpx;
+ }
+
+.orderDetail-notice-title{
+    color: white;
+    width: 100%;
+    font-size: 27rpx;
+    text-align: center;
+    align-content: center;
+    display: block;  
+}
+
+.orderDetail-notice-title.top25 {
+    padding-top:25rpx;
+}
+
+
+/* 信息展示 */
+.orderDetail-info {
+    position: relative;
+}
+.orderDetail-header {
+    background: #1A79FF ;
+    height: 325rpx;
+    padding-top:1rpx;
+}
+
+
+.orderDetail-headerTitle {
+    color: white;
+    font-size: 48rpx;
+    margin-top: 50rpx;
+    margin-left: 60rpx;
+    display: block;
+
+}
+.orderDetail-headerDetail {
+    color: white;
+    font-size: 32rpx;
+    margin-top: 22rpx;
+    margin-left: 60rpx;
+}
+.orderDetail-phoneImg {
+    position: absolute;
+    width: 77rpx;
+    height: 77rpx;
+    top: 77rpx;
+    right: 70rpx;
+}
+
+
+ /* 页面信息展示 */
+ .orderDetail-allView {
+
+    background: white;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 16px;
+    margin-top: -150rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx; 
+  }
+ 
+  .orderDetail-detailView {
+    margin-top: 45rpx;
+    padding-bottom: 45rpx;
+  }
+ 
+  .orderDetail-detailInfo {
+    font-size: 28rpx;
+    padding-left: 60rpx;
+    padding-top: 20rpx;
+    display: block;
+    color: #666666;
+ 
+  }
+ 
+
+.orderDetail-dividingLine {
+      height: 14rpx;
+      width: 700rpx;
+  }
+
+.orderDetail-btnView {
+    display: flex;
+    margin-bottom: 100rpx;
+}
+.orderDetail-cancelBtn {
+    background: #5F567A;
+    border-radius: 20rpx;
+    font-size: 38rpx;
+    color: #FFFFFF;
+    margin-top: 165rpx;
+    width: 342rpx;
+
+}
+
+.orderDetail-confirmBtn {
+    background: #1A79FF;
+    border-radius: 20rpx;
+    font-size: 38rpx;
+    color: #FFFFFF;
+    margin-top: 165rpx;
+    width: 342rpx;
+}
